@@ -11,8 +11,8 @@ using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Win.Utils;
 using System.Reflection;
-using Python.Runtime;
-using Python.Included;
+
+
 using System.Diagnostics;
 
 namespace VisualNLP.Win;
@@ -23,32 +23,9 @@ static class Program
     {
         return args.Any(arg => arg.TrimStart('/').TrimStart('-').ToLower() == argument.ToLower());
     }
-    static async System.Threading.Tasks.Task LoadPython()
-    {
-        Installer.LogMessage += Installer_LogMessage;
-        await Installer.SetupPython();
-        if (!Installer.IsPipInstalled())
-        {
-            await Installer.TryInstallPip();
-        }
-        if (!Installer.IsModuleInstalled("spacy"))
-        {
-            await Installer.PipInstallModule("spacy");
-        }
-        if (!Installer.IsModuleInstalled("torch"))
-        {
-            await Installer.PipInstallModule("torch");
-        }
-        PythonEngine.Initialize();
-        dynamic sys = Py.Import("sys");
 
-        Console.WriteLine("Python version: " + sys.version);
-    }
 
-    private static void Installer_LogMessage(string obj)
-    {
-        Debug.WriteLine($"{DateTime.Now.ToString()}pip:" + obj);
-    }
+
 
     /// <summary>
     /// The main entry point for the application.
@@ -56,9 +33,6 @@ static class Program
     [STAThread]
     public static int Main(string[] args)
     {
-        LoadPython().Wait();
-
-
 
         if (ContainsArgument(args, "help") || ContainsArgument(args, "h"))
         {

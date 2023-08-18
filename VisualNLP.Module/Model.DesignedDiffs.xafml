@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="VisualNLP">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
@@ -6,7 +6,35 @@
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="22.2.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="22.2.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="22.2.4.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="SentencePartCategory_ListView" IsFooterVisible="True">
+      <Columns>
+        <ColumnInfo Id="Name">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+    <ListView Id="TreeNodeBase_ListView_List" ClassName="VisualNLP.Module.BusinessObjects.TreeNodeBase" IsFooterVisible="True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True">
+          <Summary IsNewNode="True">
+            <ColumnSummaryItem Id="Summary0" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="CategoryName" PropertyName="CategoryName" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Parent" PropertyName="Parent" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Index" PropertyName="Index" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="WordCategory" PropertyName="WordCategory" Index="4" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>
