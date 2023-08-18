@@ -56,6 +56,7 @@ namespace VisualNLP.Module.Controllers
         {
             PSetup.Setup();
             var categories = ObjectSpace.GetObjects<SentencePartCategory>().ToList();
+            var vocabs = ObjectSpace.GetObjects<Vocab>().ToList();
             using (Py.GIL())
             {
                 dynamic hanlp = Py.Import("hanlp");
@@ -74,7 +75,26 @@ namespace VisualNLP.Module.Controllers
                 ObjectSpace.CommitChanges();
 
             }
-
+            (bool IsText, string Text) GetEndString(dynamic obj)
+            {
+                if (obj is PyObject pys && pys != null && pys.GetPythonType().Name == "str")
+                {
+                    return (true, pys.As<string>());
+                }
+                return (false, null);
+            }
+            Vocab FindOrCreate(string category, string text)
+            {
+                var find = vocabs.FirstOrDefault(t => t.Text == text && t.Category.GetType().Name == category);
+                if (find == null)
+                {
+                    find = ObjectSpace.CreateObject<Vocab>();
+                    find.Text = text;
+                    find.Category = categories.FirstOrDefault(t => t.GetType().Name == category);
+                    vocabs.Add(find);
+                }
+                return find;
+            }
 
             TreeNode GetObject(dynamic node)
             {
@@ -84,18 +104,33 @@ namespace VisualNLP.Module.Controllers
                 //var rst = new List<object>();
                 int index = 0;
 
-                //子级只有一个字符串
+
                 if (node.__len__() == 1)
                 {
-                    if (node[0] is PyObject pys && pys != null && pys.GetPythonType().Name == "str")
+                    var txt = GetEndString(node[0]);
+                    //子级只有一个字符串
+                    if (txt.IsText)
                     {
-                        tn.Text = node[0].As<string>();
-                        return tn;
+                        tn.Text = txt.Text;
+
                     }
                     else
                     {
+                        //子级只有一个不可分的元素“词”
+                        var n = node[0];
+                        if (n.__len__() == 1)
+                        {
+                            var t1 = GetEndString(n[0]);
+                            if (t1.IsText)
+                            {
+                                string label = n._label;
+                                var find = FindOrCreate(label, t1.Text);
+                                tn.RefVocab = find;
+                            }
+                        }
                         //throw new Exception("错误");
                     }
+                    return tn;
                 }
 
                 foreach (var item in node)

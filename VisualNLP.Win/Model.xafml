@@ -4,7 +4,7 @@
     <Items>
       <Item Id="Default">
         <Items>
-          <Item Id="TreeNodeBase_ListView_Copy" ViewId="TreeNodeBase_ListView_List" ObjectKey="" Caption="成份列表" IsNewNode="True" />
+          <Item Id="TreeNodeBase_ListView_Copy" ObjectKey="" Caption="成份列表" ViewId="TreeNode_ListView_Copy" IsNewNode="True" />
         </Items>
       </Item>
     </Items>
@@ -18,6 +18,23 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="22.2.4.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="TreeNodeBase_ListView_List" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="TreeNode_ListView_Copy" ClassName="VisualNLP.Module.BusinessObjects.TreeNode" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" IsFooterVisible="True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True">
+          <Summary IsNewNode="True">
+            <ColumnSummaryItem Id="Summary0" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="ItemCount" PropertyName="ItemCount" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="ClrType" PropertyName="ClrType" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Parent" PropertyName="Parent" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Index" PropertyName="Index" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="CategoryName" PropertyName="CategoryName" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Type" PropertyName="Type" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Text" PropertyName="Text" Index="8" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="TreeNodeBase_ListView_List" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="TreeNodeBase_ListView_Copy" ViewId="TreeNodeBase_ListView_List" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

@@ -87,6 +87,9 @@ public partial class TreeNode
     {
         get
         {
+            if (RefVocab != null)
+                return RefVocab.Text;
+
             if (!string.IsNullOrEmpty(Text))
                 return Text;
             return string.Join(" ", Items.Select(t => t.Name));// $"{Type}.{this.Oid}";
@@ -113,7 +116,33 @@ public partial class TreeNode
         set { SetPropertyValue(nameof(Text), value); }
     }
 
-
+    public Vocab RefVocab
+    {
+        get { return GetPropertyValue<Vocab>(nameof(RefVocab)); }
+        set { SetPropertyValue(nameof(RefVocab), value); }
+    }
     //public List<object> Items { get; } = new List<object>();
 
+}
+
+[NavigationItem]
+[XafDisplayName("词表")]
+public class Vocab : XPObject
+{
+    public Vocab(Session s) : base(s)
+    {
+
+    }
+
+    public string Text
+    {
+        get { return GetPropertyValue<string>(nameof(Text)); }
+        set { SetPropertyValue(nameof(Text), value); }
+    }
+
+    public SentencePartCategory Category
+    {
+        get { return GetPropertyValue<SentencePartCategory>(nameof(Category)); }
+        set { SetPropertyValue(nameof(Category), value); }
+    }
 }
