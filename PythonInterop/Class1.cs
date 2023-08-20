@@ -13,23 +13,23 @@ public class PSetup
             return;
         }
 
-        string dllPath = @"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\python39.dll";
-        string pythonHomePath = @"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\";
-        // 对应python内的重要路径
-        string[] py_paths = {"DLLs", "lib", "lib/site-packages", "lib/site-packages/win32"
-                , "lib/site-packages/win32/lib", "lib/site-packages/Pythonwin" };
-        string pySearchPath = $"{pythonHomePath};";
-        foreach (string p in py_paths)
-        {
-            pySearchPath += $"{pythonHomePath}/{p};";
-        }
+        string dllPath = @"D:\Python3114\python311.dll";
+        //string pythonHomePath = @"D:\other\ooba\installer_files\env";
+        //// 对应python内的重要路径
+        //string[] py_paths = {"DLLs", "lib", "lib/site-packages", "lib/site-packages/win32"
+        //        , "lib/site-packages/win32/lib", "lib/site-packages/Pythonwin" };
+        //string pySearchPath = $"{pythonHomePath};";
+        //foreach (string p in py_paths)
+        //{
+        //    pySearchPath += $"{pythonHomePath}/{p};";
+        //}
 
-        // 此处解决BadPythonDllException报错
+        //// 此处解决BadPythonDllException报错
         Runtime.PythonDLL = dllPath;
-        Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", dllPath);
-        // 配置python环境搜索路径解决PythonEngine.Initialize() 崩溃
-        PythonEngine.PythonHome = pythonHomePath;
-        PythonEngine.PythonPath = pySearchPath;
+        ////Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", dllPath);
+        //// 配置python环境搜索路径解决PythonEngine.Initialize() 崩溃
+        //PythonEngine.PythonHome = pythonHomePath;
+        //PythonEngine.PythonPath = pySearchPath;
         PythonEngine.Initialize();
 
     }

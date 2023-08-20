@@ -25,6 +25,8 @@
     <PackageReference Include="DevExpress.ExpressApp.ReportsV2.Blazor" Version="22.2.4" />
     <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="22.2.4" />
     <PackageReference Include="DevExpress.ExpressApp.Validation.Blazor" Version="22.2.4" />
+	  <PackageReference Include="pythonnet" Version="3.0.1" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VisualNLP.Module\VisualNLP.Module.csproj" />

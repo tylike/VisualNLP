@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualNLP.Win", "VisualNLP.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualNLP.Blazor.Server", "VisualNLP.Blazor.Server\VisualNLP.Blazor.Server.csproj", "{0330C3FE-DFA0-4E23-A8A2-CC30CF0BE66C}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "onnxadder", "..\TransformerTS\onnxadder\onnxadder.pyproj", "{975EBE32-75F6-4357-ACF1-6D3A0B10C2C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PythonInterop", "PythonInterop\PythonInterop.csproj", "{213EB99A-287F-4AFC-B242-883F5112A6B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythonInterop", "PythonInterop\PythonInterop.csproj", "{213EB99A-287F-4AFC-B242-883F5112A6B7}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1\PythonApplication1.pyproj", "{9645FF9F-DCD8-4DE6-AB20-35DA65D21B1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,15 +38,15 @@ Global
 		{0330C3FE-DFA0-4E23-A8A2-CC30CF0BE66C}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{0330C3FE-DFA0-4E23-A8A2-CC30CF0BE66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0330C3FE-DFA0-4E23-A8A2-CC30CF0BE66C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{975EBE32-75F6-4357-ACF1-6D3A0B10C2C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{975EBE32-75F6-4357-ACF1-6D3A0B10C2C3}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
-		{975EBE32-75F6-4357-ACF1-6D3A0B10C2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{213EB99A-287F-4AFC-B242-883F5112A6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9645FF9F-DCD8-4DE6-AB20-35DA65D21B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9645FF9F-DCD8-4DE6-AB20-35DA65D21B1D}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{9645FF9F-DCD8-4DE6-AB20-35DA65D21B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
